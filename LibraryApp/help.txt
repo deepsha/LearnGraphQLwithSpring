@@ -1,0 +1,56 @@
+to run h2 console
+http://localhost:8080/h2-console/l
+
+Using postman ,u can test API end point and choose GraphQL
+URL:http://localhost:8080/graphql
+METHOD:POST(Always put POST for query and mutation)
+BODY:
+Input1:to display all list of books
+query{
+    books{
+        id,
+        bookName,
+        bookDescription,
+        bookAuthorName,
+        bookGenre,
+        bookPublisherName,
+        bookLanguage
+    }
+
+}
+Input2:to display single book filter by bookId
+query{
+    bookById(id:2){
+        id,
+        bookName,
+        bookDescription,
+        bookAuthorName,
+        bookGenre,
+        bookPublisherName,
+        bookLanguage
+    }
+
+}
+
+
+Input4:To add book item
+mutation{
+    addBook(input: {       
+                bookName: "Network IOT",
+                bookIsbn: "A12340",
+                bookAuthorName: "Paelo Carlo",
+                bookDescription: "AI with Networking",
+                bookLanguage:"English",
+                bookAvailableStatus: "Yes"
+       
+      
+    }){
+        id,
+        bookName, 
+        bookIsbn,      
+        bookAuthorName,
+        bookGenre,
+        bookPublisherName
+    }
+
+}
